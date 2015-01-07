@@ -24,5 +24,14 @@ namespace blogik.Controllers
             return View();
         }
 
+        public ActionResult AddComm()
+        {
+            string name = Request.Form["author"];
+            string comm = Request.Form["comment"];
+
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

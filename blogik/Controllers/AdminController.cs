@@ -34,6 +34,8 @@ namespace blogik.Controllers
 
         public ActionResult Add()
         {
+            string name = Request.Form["author"];
+            string comm = Request.Form["comment"];
             return View();
         }
     }
