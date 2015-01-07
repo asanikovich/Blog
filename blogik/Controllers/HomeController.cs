@@ -24,11 +24,15 @@ namespace blogik.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult AddComm()
         {
             string name = Request.Form["author"];
             string comm = Request.Form["comment"];
-
+            string id = Request.Form["comment_post_ID"];
+            var model = new AddComm(name, comm, id);
+            
+            if (!string.IsNullOrWhiteSpace(name) && !string.IsNullOrWhiteSpace(comm)) ; // TODO ADD DO TB
             return RedirectToAction("Index");
         }
 

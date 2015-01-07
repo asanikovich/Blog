@@ -8,17 +8,17 @@
         <div class="my-posts-last">Добавить новую запись</div>
         <div class="block-divider"></div>
 
-        <form action="single.html" method="post" id="commentform">
+        <form action="@Url.Action("AddPost", "Admin")" method="post" id="commentform">
 
             <p class="comment-form-author">
                 <label for="author">Название</label>
                 <input id="name" name="name" type="text" value="" size="30" required aria-required="true">
             </p>
 
-            <p class="comment-form-author">
+            @*<p class="comment-form-author">
                 <label for="author">Дата</label>
                 <input id="date" name="date" type="text" value="" size="30" placeholder="Оставьте пустым для сегодняшней даты" required aria-required="true">
-            </p>
+            </p>*@
 
             <p class="comment-form-author">
                 <label for="author">URL</label>

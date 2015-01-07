@@ -133,6 +133,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddComm.cs" />
+    <Compile Include="Models\AddPost.cs" />
     <Compile Include="Models\AllPostModel.cs" />
     <Compile Include="Models\PostCommentModel.cs" />
     <Compile Include="Models\PostModel.cs" />

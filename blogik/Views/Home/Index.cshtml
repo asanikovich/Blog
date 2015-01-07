@@ -8,7 +8,7 @@
     <article class="cf">
         <div class="entry-title">
             <div class="post-heading">@Model.name ++++ @ViewBag.idpost</div>
-            <div class="meta">@Model.date.ToString("D")</div>
+            <div class="meta">@Model.date.ToString("f")</div>
         </div>
         <div class="block-divider"></div>
         <div class="excerpt entry-content">
@@ -28,7 +28,7 @@
                 <li class="comment">
                     <div id="div-comment-1" class="comment-body">
                         <div class="comment-author vcard"><cite class="fn">@item.username</cite></div>
-                        <div class="comment-meta commentmetadata">@item.date</div>
+                        <div class="comment-meta commentmetadata">@item.date.ToString("f")</div>
                         <p>@item.text</p>
                     </div>
                 </li>
@@ -55,7 +55,7 @@
 
             <p class="form-submit">
                 <input name="submit" type="submit" id="submit" value="Отправить">
-                <input type="hidden" name="comment_post_ID" value="34" id="comment_post_ID">
+                <input type="hidden" name="comment_post_ID" value="@Model.id_post" id="comment_post_ID">
             </p>
 
         </form>

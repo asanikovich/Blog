@@ -14,7 +14,7 @@
             <a href="@Url.RouteUrl("Post", new { Controller = "Post", action = "NPost", id = @item.url })" class="title">
                 @item.name
             </a>
-            <span class="date">@item.date</span>
+            <span class="date">@item.date.ToString("f")</span>
         </li>
     }
     </ul>

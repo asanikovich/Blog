@@ -15,6 +15,14 @@ namespace blogik.Models
             date = DateTime.Now.AddDays(-1);
         }
 
+        public RCommModelItem(string u, string t, string url, DateTime d)
+        {
+            username = u;
+            text = t;
+            url = u;
+            date = d;
+        }
+
         public string username { get; set; }
         public string text { get; set; }
         public string url { get; set; }

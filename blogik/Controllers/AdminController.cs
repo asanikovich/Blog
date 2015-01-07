@@ -1,4 +1,5 @@
-﻿using System;
+﻿using blogik.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -27,15 +28,22 @@ namespace blogik.Controllers
             return View();
         }
 
+        //[HttpGet] TODO
         public ActionResult Edit()
         {
+            string url = Request.QueryString["url"];
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddPost(string name, string post, string url)
+        {
+            var model = new AddPost(name, post, url);
+            return RedirectToAction("Index","Home");
         }
 
         public ActionResult Add()
         {
-            string name = Request.Form["author"];
-            string comm = Request.Form["comment"];
             return View();
         }
     }

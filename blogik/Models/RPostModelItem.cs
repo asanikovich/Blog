@@ -7,6 +7,13 @@ namespace blogik.Models
 {
     public class RPostModelItem
     {
+        public RPostModelItem(string name_, string url_, DateTime date_)
+        {
+            name = name_;
+            url = url_;
+            date = date_;
+        }
+
         public RPostModelItem()
         {
             name = "post1";

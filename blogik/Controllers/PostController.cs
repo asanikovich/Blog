@@ -9,8 +9,6 @@ namespace blogik.Controllers
 {
     public class PostController : Controller
     {
-        //
-        // GET: /Post/
 
         public ActionResult Index()
         {
@@ -21,14 +19,11 @@ namespace blogik.Controllers
         public ActionResult NPost(string id=null)
         {
             if(id == null) {
-                @ViewBag.idpost = 0;
                 return RedirectToAction("Index");
-                //return View(Index);
             }
             else
             {
-                var model = new PostModel();
-                @ViewBag.idpost = id;
+                var model = new PostModel(id);
                 return View(model);
             }
             //var model = new PostModel();
@@ -43,12 +38,6 @@ namespace blogik.Controllers
         //    Console.Write(id);
         //    ViewData["DetailInfo"] = id;
         //    return View();
-        //}
-
-        //public ActionResult Last()
-        //{
-        //    var model = new PostModel();
-        //    return View(model);
         //}
 
     }
