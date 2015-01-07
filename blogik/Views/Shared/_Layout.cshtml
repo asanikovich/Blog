@@ -3,9 +3,34 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <meta name="description" content="Blog AlSan | Aliaksei Sanikovich">
+    <title>@ViewBag.Title | AlSan Blog</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <link rel="stylesheet" href="~/Content/css/responsive.css">
 </head>
 <body>
-    @RenderBody()
+    <div class="wrapper">
+
+        <header class="cf">
+            <div id="logo"><a href="/"><img src="~/Content/img/logo.png" alt="AlSan Blog" /></a></div>
+            <ul id="social-bar" class="cf">
+                <li class="dribbble"><a href="http://allok.us/" title="Main Site" target="_blank"></a></li>
+                <li class="facebook"><a href="https://www.facebook.com/vseokDOG" title="Facebook" target="_blank"></a></li>
+                <li class="googleplus"><a href="https://plus.google.com/+AlexeiSanikovich/posts" title="Google Plus" target="_blank"></a></li>
+                <li class="twitter"><a href="https://twitter.com/allokDOG" title="Twitter" target="_blank"></a></li>
+                <li class="lastfm"><a href="http://www.lastfm.ru/user/allokDOG" title="Last.fm" target="_blank"></a></li>
+            </ul>
+        </header>
+
+        @RenderBody()
+        @*@Html.Action("Main", "RPost")
+        @Html.Action("Main", "RComm")*@
+        <div class="footer-divider"></div> <!-- FOOTER -->
+        <footer class="cf">
+            Blog by <a href="http://allok.us" target="_blank">AlSan | Aliaksei Sanikovich</a>
+        </footer>
+
+    </div>
 </body>
 </html>

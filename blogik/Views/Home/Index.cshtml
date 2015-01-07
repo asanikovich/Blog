@@ -1,0 +1,190 @@
+﻿@{
+    ViewBag.Title = "Главная";
+    ViewBag.idpage = 1;
+}
+@*@model blogik.Models.HomeModel
+    <h2>Invbgdex</h2>
+    @Model.Post.name
+    @Model.Post.comments @if(ViewBag.idpage)
+    @Model.Post.date
+    @Model.Post.text*@
+
+@*dgfddddddddddd
+ddddddddd
+ddddddddd*@
+        <nav class="cf"> 
+            <ul id="nav" class="sf-menu">
+                <li class="current-menu-item"><a href="index.html">Главная</a></li>
+                <li><a href="posts.html">Записи</a></li>
+                <li class="important"><a href="add.html">Добавить</a></li>
+            </ul>
+        </nav>
+
+        <div id="main" class="cf">
+            <div id="posts-list" class="cf single-post">
+
+                <article class="cf">
+                    <div class="entry-title">
+                        <div class="post-heading">Главное сдать сессию</div>
+                        <div class="meta">Jan 23</div>
+                    </div>
+                    <div class="block-divider"></div>
+                    <div class="excerpt entry-content">
+                        <p>
+                            5 способов сдать сессию на «отлично».<br>
+                            И пережить экзамены без стресса и бессонных ночей.
+                        </p>
+                        <blockquote>
+                            1. Соблюдай диету пятерочника<br>
+                            2. Не забывай о режиме дня<br>
+                            3. Составь график занятий<br>
+                            4. Не отвлекайся на частности<br>
+                            5. Настройся на позитив<br>
+                        </blockquote>
+                    </div>
+                </article>
+
+                <div class="block-divider"></div>
+
+                <div id="comments-wrap">
+                    <h4 class="heading">2 комментария</h4>
+
+                    <ul class="commentlist">
+
+                        <li class="comment">
+                            <div id="div-comment-1" class="comment-body">
+                                <div class="comment-author vcard"><cite class="fn">admin</cite></div>
+                                <div class="comment-meta commentmetadata">June 18, 2012 at 6:07</div>
+                                <p>Отличный блог!</p>
+                            </div>
+                        </li>
+
+                        <li class="comment">
+                            <div id="div-comment-1" class="comment-body">
+                                <div class="comment-author vcard"><cite class="fn">admin</cite></div>
+                                <div class="comment-meta commentmetadata">June 18, 2012 at 6:07</div>
+                                <p>Отличный блог!</p>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div id="respond">
+                    <h4 class="heading">Оставить комментарий</h4>
+                    <form action="single.html" method="post" id="commentform">
+                        <p class="comment-notes">Заполните все поля обязательно<span class="required">*</span></p>
+
+                        <p class="comment-form-author">
+                            <label for="author">Имя</label>
+                            <input id="author" name="author" type="text" value="" size="30" required aria-required="true">
+                        </p>
+
+                        <p class="comment-form-comment">
+                            <label for="comment">Ваш комментарий</label>
+                            <textarea id="comment" name="comment" cols="25" rows="8" required aria-required="true"></textarea>
+                        </p>		<!-- Номер поста -->
+
+                        <p class="form-submit">
+                            <input name="submit" type="submit" id="submit" value="Отправить">
+                            <input type="hidden" name="comment_post_ID" value="34" id="comment_post_ID">
+                        </p>
+
+                    </form>
+                </div>
+                <div class="block-divider"></div>
+                <div id="my-button"><a href="posts.html" class="link-button green">Читать другие записи</a></div>
+
+            </div>
+
+            <aside id="sidebar">
+                <ul>
+                    <li class="block">
+                        <h4 class="heading">Поиск</h4>
+                        <div class="small-posts-list ">
+
+                            <form action="search.html" method="post" id="commentform">
+
+                                <input id="search" name="search" type="text" value="" placeholder="Введите текст для поиска" size="10" required aria-required="true"></p>
+
+                                <p class="form-submit">
+                                    <input name="submit" type="submit" id="submit" value="Найти">
+                                </p>
+
+                            </form>
+
+                        </div>
+                    </li>
+
+                    <li class="block">
+                        <h4 class="heading">Последние записи</h4>
+                        <div class="small-posts-list ">
+
+                            <div class="post cf">
+                                <div class="post-head">
+                                    <a href="#">Запись 1</a>
+                                    <span class="meta"><a href="#">Mar 12</a></span>
+                                </div>
+                            </div>
+
+                            <div class="post cf">
+                                <div class="post-head">
+                                    <a href="#">Запись 2</a>
+                                    <span class="meta"><a href="#">Mar 12</a></span>
+                                </div>
+                            </div>
+
+                            <div class="post cf">
+                                <div class="post-head">
+                                    <a href="#">Запись 3</a>
+                                    <span class="meta"><a href="#">Mar 12</a></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li class="block">
+                        <h4 class="heading">Последние комментарии</h4>
+                        <div class="small-posts-list ">
+
+                            <div class="post cf">
+                                <div class="post-head">
+                                    <a href="#">блонг ком</a>
+                                    <span class="meta"><a href="#">Mar 12 by DOG</a></span>
+                                </div>
+                            </div>
+
+                            <div class="post cf">
+                                <div class="post-head">
+                                    <a href="#">Pellentesque habitant morbi senectus </a>
+                                    <span class="meta"><a href="#">Mar 12 by DOG</a></span>
+                                </div>
+                            </div>
+
+                            <div class="post cf">
+                                <div class="post-head">
+                                    <a href="#">блонг ком</a>
+                                    <span class="meta"><a href="#">Mar 12 by DOG</a></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li class="block">
+                        <h4 class="heading">Категории</h4>
+                        <div class="small-posts-list ">
+                            <div class="widget-block">
+                                <ul>
+                                    <li class="cat-item"><a href="#">Design</a></li>
+                                    <li class="cat-item"><a href="#">Photo</a></li>
+                                    <li class="cat-item"><a href="#">Art</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </aside>
+
+        </div>	<!-- ENDS MAIN -->
