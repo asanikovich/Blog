@@ -14,12 +14,26 @@ namespace blogik.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var model = new AllPostModel();
+            return View(model);
         }
 
-        public ActionResult First()
+        public ActionResult NPost(string id=null)
         {
-            return View();
+            if(id == null) {
+                @ViewBag.idpost = 0;
+                return RedirectToAction("Index");
+                //return View(Index);
+            }
+            else
+            {
+                var model = new PostModel();
+                @ViewBag.idpost = id;
+                return View(model);
+            }
+            //var model = new PostModel();
+            //return View();
+            
         }
 
 

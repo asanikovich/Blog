@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Изменение записи";
+    ViewBag.PostName = "запись";
+}
+<div id="posts-list" class="cf single-post add-class">
+
+    <div id="respond">
+        <div class="my-posts-last">Именить @ViewBag.PostName</div>
+        <div class="block-divider"></div>
+
+        <form action="single.html" method="post" id="commentform">
+
+            <p class="comment-form-author">
+                <label for="author">Название</label>
+                <input id="name" name="name" type="text" value="" size="30" required aria-required="true">
+            </p>
+
+            <p class="comment-form-author">
+                <label for="author">Дата</label>
+                <input id="date" name="date" type="text" value="" size="30" placeholder="Оставьте пустым для сегодняшней даты" required aria-required="true">
+            </p>
+
+            <p class="comment-form-author">
+                <label for="author">URL</label>
+                <input id="url" name="url" type="text" value="" size="30" required aria-required="true">
+            </p>
+
+            <p class="comment-form-comment">
+                <label for="comment">Содержание записи</label>
+                <textarea id="post" name="post" cols="25" rows="8" required aria-required="true"></textarea>
+            </p>
+
+            <p class="form-submit">
+                <input name="submit" type="submit" id="submit" value="Добавить">
+            </p>
+
+        </form>
+    </div>
+
+</div>

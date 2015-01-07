@@ -1,6 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Главная";
-    ViewBag.idpage = 1;
+    ViewBag.Title = @Model.name;
 }
 @model blogik.Models.PostModel
 <div id="posts-list" class="cf single-post">
@@ -25,13 +24,13 @@
 
             @foreach (var item in Model.comments)
             {
-                <li class="comment">
-                    <div id="div-comment-1" class="comment-body">
-                        <div class="comment-author vcard"><cite class="fn">@item.username</cite></div>
-                        <div class="comment-meta commentmetadata">@item.date</div>
-                        <p>@item.text</p>
-                    </div>
-                </li>
+            <li class="comment">
+                <div id="div-comment-1" class="comment-body">
+                    <div class="comment-author vcard"><cite class="fn">@item.username</cite></div>
+                    <div class="comment-meta commentmetadata">@item.date</div>
+                    <p>@item.text</p>
+                </div>
+            </li>
             }
 
         </ul>

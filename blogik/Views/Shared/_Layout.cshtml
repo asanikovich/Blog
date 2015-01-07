@@ -13,7 +13,7 @@
     <div class="wrapper">
 
         <header class="cf">
-            <div id="logo"><a href="/"><img src="~/Content/img/logo.png" alt="AlSan Blog" /></a></div>
+            <div id="logo"><a href="@Url.Action("Index","Home")"><img src="~/Content/img/logo.png" alt="AlSan Blog" /></a></div>
             <ul id="social-bar" class="cf">
                 <li class="dribbble"><a href="http://allok.us/" title="Main Site" target="_blank"></a></li>
                 <li class="facebook"><a href="https://www.facebook.com/vseokDOG" title="Facebook" target="_blank"></a></li>
@@ -25,12 +25,12 @@
 
         <nav class="cf">
             <ul id="nav" class="sf-menu">
-                @if (ViewBag.idpage == 1) {<li class="current-menu-item"><a href="/">Главная</a></li>}
-                    else {<li><a href="/">Главная</a></li>}
-                @if (ViewBag.idpage == 2) {<li class="current-menu-item"><a href="post">Записи</a></li>}
-                    else {<li><a href="post">Записи</a></li>}
-                @if (ViewBag.idpage == 3) {<li class="important current-menu-item"><a href="add">Добавить</a></li>}
-                    else {<li class="important"><a href="add">Добавить</a></li>}
+                @if (ViewBag.idpage == 1) {<li class="current-menu-item"><a href="@Url.Action("Index","Home")">Главная</a></li>}
+                    else {<li><a href="@Url.Action("Index","Home")">Главная</a></li>}
+                @if (ViewBag.idpage == 2) {<li class="current-menu-item"><a href="@Url.Action("Index","Post")">Записи</a></li>}
+                    else {<li><a href="@Url.Action("Index","Post")">Записи</a></li>}
+                @if (ViewBag.idpage == 3) {<li class="important current-menu-item"><a href="@Url.Action("Add", "Admin")">Добавить</a></li>}
+                    else {<li class="important"><a href="@Url.Action("Add", "Admin")">Добавить</a></li>}
             </ul>
         </nav>
 

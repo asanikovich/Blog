@@ -9,7 +9,7 @@
             <ul>
                 @foreach (var item in Model.tags)
                 {
-                    <li class="cat-item"><a href="@item.url">@item.name</a></li>
+                    <li class="cat-item"><a href="@Url.RouteUrl("Tags", new { Controller = "Tags", action = "NTags", id = @item.url } )">@item.name</a></li>
                 }
             </ul>
         </div>

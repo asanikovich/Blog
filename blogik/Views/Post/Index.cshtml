@@ -2,52 +2,21 @@
     ViewBag.Title = "Последние записи";
     ViewBag.idpage = 2;
 }
-
+@model blogik.Models.AllPostModel
 <div class="one-third-col one-third-col-my">
     <div class="my-posts-last">Последние записи</div>
     <div class="block-divider my-block"></div>
 
     <ul class="recent-posts">
+    @foreach (var item in Model.items)
+    {
         <li>
-            <a href="single.html" class="title">Главное сдать сессию</a>
-            <span class="date">Jan 12</span>
+            <a href="@Url.RouteUrl("Post", new { Controller = "Post", action = "NPost", id = @item.url })" class="title">
+                @item.name
+            </a>
+            <span class="date">@item.date</span>
         </li>
-        <li>
-            <a href="single.html" class="title">Главное сдать сессию 2</a>
-            <span class="date">Jan 12</span>
-        </li>
-        <li>
-            <a href="single.html" class="title">Lorem Ipsum Dolor</a>
-            <span class="date">Jan 12</span>
-        </li>
-        <li>
-            <a href="single.html" class="title">Lorem Ipsum Dolor</a>
-            <span class="date">Jan 12</span>
-        </li>
-        <li>
-            <a href="single.html" class="title">Главное сдать сессиюГлавное сдать сессию</a>
-            <span class="date">Jan 12</span>
-        </li>
-        <li>
-            <a href="single.html" class="title">Главное сдать сессию</a>
-            <span class="date">Jan 12</span>
-        </li>
-        <li>
-            <a href="single.html" class="title">Lorem Ipsum DolorLorolorLorem Ipsum Dolor</a>
-            <span class="date">Jan 12</span>
-        </li>
-        <li>
-            <a href="single.html" class="title">Главное сдать сессию</a>
-            <span class="date">Jan 12</span>
-        </li>
-        <li>
-            <a href="single.html" class="title">Lorem Ipsum Dolor</a>
-            <span class="date">Jan 12</span>
-        </li>
-        <li>
-            <a href="single.html" class="title">Lorem Ipsum Dolor</a>
-            <span class="date">Jan 12</span>
-        </li>
+    }
     </ul>
 
     <ul class="pager cf">

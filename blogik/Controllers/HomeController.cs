@@ -15,7 +15,13 @@ namespace blogik.Controllers
         public ActionResult Index()
         {
             var model = new PostModel();
+            @ViewBag.idpost = 0;
             return View(model);
+        }
+
+        public ActionResult Error()
+        {
+            return View();
         }
 
     }

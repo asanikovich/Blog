@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Авторизация";
+}
+<div id="posts-list" class="cf single-post add-class">
+
+    <div id="respond">
+        <div class="my-posts-last">Войдите для доступа к админке</div>
+        <div class="block-divider"></div>
+
+        <form action="single.html" method="post" id="commentform">
+
+            <p class="comment-form-author">
+                <label for="author">Логин</label>
+                <input id="login" name="login" type="text" value="" size="30" required aria-required="true">
+            </p>
+
+            <p class="comment-form-author">
+                <label for="author">Пароль</label>
+                <input id="pass" name="pass" type="password" value="" size="30" required aria-required="true">
+            </p>
+
+            <p class="form-submit">
+                <input name="submit" type="submit" id="submit" value="Войти">
+            </p>
+
+        </form>
+    </div>
+
+</div>
