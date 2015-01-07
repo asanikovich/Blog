@@ -1,5 +1,20 @@
 ﻿@{
     Layout = null;
 }
+@model blogik.Models.RPostModel
+<li class="block">
+    <h4 class="heading">Последние записи</h4>
+    <div class="small-posts-list ">
 
-RP
+        @foreach (var item in Model.items)
+        {
+            <div class="post cf">
+                <div class="post-head">
+                    <a href="@item.url">@item.name</a>
+                    <span class="meta"><a href="@item.url">@item.date.ToString("D")</a></span>
+                </div>
+            </div>
+        }
+
+    </div>
+</li>

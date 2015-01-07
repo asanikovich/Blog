@@ -125,20 +125,21 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AddController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\PostCommentModel.cs" />
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Models\RCommModel.cs" />
     <Compile Include="Models\RCommModelItem.cs" />
-    <Compile Include="Models\RecentModel.cs" />
     <Compile Include="Models\RPostModel.cs" />
     <Compile Include="Models\RPostModelItem.cs" />
+    <Compile Include="Models\TagModel.cs" />
+    <Compile Include="Models\TagModelItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +205,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Main\RPost.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Main\Tags.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Add\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

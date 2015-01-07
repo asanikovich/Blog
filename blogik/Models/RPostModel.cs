@@ -14,8 +14,8 @@ namespace blogik.Models
             items.Add(new RPostModelItem());
             items.Add(new RPostModelItem());
             items.Add(new RPostModelItem());
-
         }
+
         public ICollection<RPostModelItem> items { get; set; }
     }
 }

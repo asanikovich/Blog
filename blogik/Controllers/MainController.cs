@@ -12,12 +12,6 @@ namespace blogik.Controllers
         //
         // GET: /Main/
 
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-
-
         public ActionResult RPost()
         {
             var model = new RPostModel();
@@ -27,6 +21,12 @@ namespace blogik.Controllers
         public ActionResult RComm()
         {
             var model = new RCommModel();
+            return View(model);
+        }
+
+        public ActionResult Tags()
+        {
+            var model = new TagModel();
             return View(model);
         }
 

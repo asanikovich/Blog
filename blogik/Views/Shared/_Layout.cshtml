@@ -23,14 +23,53 @@
             </ul>
         </header>
 
-        @RenderBody()
-        @*@Html.Action("Main", "RPost")
-        @Html.Action("Main", "RComm")*@
+        <nav class="cf">
+            <ul id="nav" class="sf-menu">
+                @if (ViewBag.idpage == 1) {<li class="current-menu-item"><a href="/">Главная</a></li>}
+                    else {<li><a href="/">Главная</a></li>}
+                @if (ViewBag.idpage == 2) {<li class="current-menu-item"><a href="post">Записи</a></li>}
+                    else {<li><a href="post">Записи</a></li>}
+                @if (ViewBag.idpage == 3) {<li class="important current-menu-item"><a href="add">Добавить</a></li>}
+                    else {<li class="important"><a href="add">Добавить</a></li>}
+            </ul>
+        </nav>
+
+        <div id="main" class="cf"> 
+                           
+            @RenderBody()
+
+            <aside id="sidebar">
+                <ul>
+                    <li class="block">
+                        <h4 class="heading">Поиск</h4>
+                        <div class="small-posts-list ">
+
+                            <form action="search.html" method="post" id="commentform">
+
+                                <input id="search" name="search" type="text" value="" placeholder="Введите текст для поиска" size="10" required aria-required="true"></p>
+
+                                <p class="form-submit">
+                                    <input name="submit" type="submit" id="submit" value="Найти">
+                                </p>
+
+                            </form>
+
+                        </div>
+                    </li>
+
+                    @Html.Action("RPost", "Main")
+                    @Html.Action("RComm", "Main")
+                    @Html.Action("Tags", "Main")
+
+                </ul>
+            </aside>
+
+        </div>	<!-- ENDS MAIN -->
+
         <div class="footer-divider"></div> <!-- FOOTER -->
         <footer class="cf">
             Blog by <a href="http://allok.us" target="_blank">AlSan | Aliaksei Sanikovich</a>
         </footer>
-
-    </div>
+</div>
 </body>
 </html>

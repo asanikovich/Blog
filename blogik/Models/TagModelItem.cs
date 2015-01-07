@@ -5,17 +5,21 @@ using System.Web;
 
 namespace blogik.Models
 {
-    public class RPostModelItem
+    public class TagModelItem
     {
-        public RPostModelItem()
+        public TagModelItem()
         {
-            name = "post1";
-            url = "123";
-            date = DateTime.Now;
+            name = "dog";
+            url = "123213";
+        }
+
+        public TagModelItem(string n)
+        {
+            name = n;
+            url = "123213";
         }
 
         public string name { get; set; }
         public string url { get; set; }
-        public DateTime date { get; set; }
     }
 }

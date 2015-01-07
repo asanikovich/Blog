@@ -1,5 +1,4 @@
-﻿using blogik.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,15 +6,14 @@ using System.Web.Mvc;
 
 namespace blogik.Controllers
 {
-    public class HomeController : Controller
+    public class AddController : Controller
     {
         //
-        // GET: /Home/
+        // GET: /Add/
 
         public ActionResult Index()
         {
-            var model = new PostModel();
-            return View(model);
+            return View();
         }
 
     }
