@@ -147,7 +147,6 @@
     <Compile Include="Models\RPostModel.cs" />
     <Compile Include="Models\RPostModelItem.cs" />
     <Compile Include="Models\TagModel.cs" />
-    <Compile Include="Models\TagModelItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -234,6 +233,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Post\Search.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Tags\NTags.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

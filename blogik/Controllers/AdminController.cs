@@ -83,18 +83,18 @@ namespace blogik.Controllers
         [Authorize(Users = "AlSan")]
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Update(int id_post, string name, string post, string url, DateTime date)
+        public ActionResult Update(int id_post, string name, string post, string url, string tags, DateTime date)
         {
-            var model = new AUpdateModel(id_post, name, post, url, date);
+            var model = new AUpdateModel(id_post, name, post, url, tags, date);
             return RedirectPermanent("/Post/" + model.retNewUrl() );
         }
 
         [Authorize(Users = "AlSan")]
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult AddPost(string name, string post, string url)
+        public ActionResult AddPost(string name, string post, string url, string tags)
         {
-            var model = new AddPost(name, post, url);
+            var model = new AddPost(name, post, url, tags);
             return RedirectPermanent("/Post/" + model.retNewUrl());
         }
 

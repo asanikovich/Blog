@@ -31,6 +31,11 @@
                 <textarea id="post" name="post" cols="25" rows="8" required aria-required="true">@Model.text</textarea>
             </p>
 
+            <p class="comment-form-author">
+                <label for="tags">Тэги (Введите через запятую)</label>
+                <input id="tags" name="tags" type="text" value="@Model.tags" size="30">
+            </p>
+
             <p class="form-submit">
                 <input name="submit" type="submit" id="submit" value="Сохранить">
                 <input name="id_post" type="hidden" id="id_post" value="@Model.id_post">

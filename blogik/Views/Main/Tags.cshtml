@@ -7,9 +7,9 @@
     <div class="small-posts-list ">
         <div class="widget-block">
             <ul>
-                @foreach (var item in Model.tags)
+                @foreach (var item in Model.tag_mas)
                 {
-                    <li class="cat-item"><a href="@Url.RouteUrl("Tags", new { Controller = "Tags", action = "NTags", id = @item.url } )">@item.name</a></li>
+                    <li class="cat-item"><a href="@Url.RouteUrl("Tags", new { Controller = "Tags", action = "NTags", id = @item } )">@item</a></li>
                 }
             </ul>
         </div>

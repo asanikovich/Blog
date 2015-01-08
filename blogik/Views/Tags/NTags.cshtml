@@ -1,14 +1,15 @@
 ﻿@{
-    ViewBag.Title = "Поиск";
+    ViewBag.Title = "Тэги";
     ViewBag.idpage = 0;
 }
-@model blogik.Models.AllPostModel
+@model blogik.Models.TagNameModel
 <div class="one-third-col one-third-col-my">
-    <div class="my-posts-last">Результаты поиска «@Model.search_t»</div>
+    <div class="my-posts-last">Записи по тегу «@Model.tagname»</div>
     <div class="block-divider my-block"></div>
 
     <ul class="recent-posts">
-        @if(Model.cur_page==0) {
+        @if (Model.tagskol == 0)
+        {
             <li>
                 <a href="@Url.Action("Index", "Home")" class="title">
                     К сожалению, по вашему запросу ничего не найдено!

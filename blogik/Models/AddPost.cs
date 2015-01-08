@@ -9,7 +9,7 @@ namespace blogik.Models
 {
     public class AddPost
     {
-        public AddPost(string name, string text, string url)
+        public AddPost(string name, string text, string url, string tags)
         {
             int k = 0;
             using (var DB = new SqlConnection(ConfigurationManager.ConnectionStrings["mssql"].ConnectionString))
@@ -32,16 +32,33 @@ namespace blogik.Models
             if (k == 0) { 
                 using (var DB = new SqlConnection(ConfigurationManager.ConnectionStrings["mssql"].ConnectionString))
                 {
-                    using (var query = new SqlCommand(String.Format(@"INSERT INTO post (name, text, url) values
-                                    (@name, @text, @url)")))
+                    DB.Open();
+                    using (var query = new SqlCommand(String.Format(@"INSERT INTO post (name, text, url, tags) values
+                                    (@name, @text, @url, @tags)")))
                     {
                         query.Parameters.Add(new SqlParameter("name", name));
                         query.Parameters.Add(new SqlParameter("text", text));
                         query.Parameters.Add(new SqlParameter("url", url));
+                        query.Parameters.Add(new SqlParameter("tags", tags));
                         query.Connection = DB;
-                        DB.Open();
+                        
                         query.ExecuteNonQuery();
                         urlnew = url;
+                        
+                    }
+
+                    using (var query = new SqlCommand(String.Format(@"SELECT TOP(1) id_post FROM post WHERE url = @url")))
+                    {
+                        query.Connection = DB;
+                        query.Parameters.Add(new SqlParameter("url", url));
+                        using (var reader = query.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                int id_post = Convert.ToInt32(reader["id_post"].ToString());
+                                var m1 = new ATagsUpdate(tags, id_post);
+                            }
+                        }
                     }
                 }
             }
