@@ -29,13 +29,16 @@ namespace blogik.Controllers
         {
             string name = Request.Form["author"];
             string comm = Request.Form["comment"];
-            string id = Request.Form["comment_post_ID"];
-            var model = new AddComm(name, comm, id);
+            string id1 = Request.Form["comment_post_ID"];
+            string url = Request.Form["url_now"];
+            var model = new AddComm(name, comm, id1);
             
-            if (!string.IsNullOrWhiteSpace(name) && !string.IsNullOrWhiteSpace(comm)) ; // TODO ADD DO TB
-            return RedirectToAction("Index");
+            //if (!string.IsNullOrWhiteSpace(name) && !string.IsNullOrWhiteSpace(comm)) ; // TODO ADD DO TB
+            return RedirectToAction("NPost", "Post", new { id = url });
         }
 
 
     }
 }
+
+//<a href="@Url.RouteUrl("Post", new { Controller = "Post", action = "NPost", id = @item.url } )">@item.name</a>

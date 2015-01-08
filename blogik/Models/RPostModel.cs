@@ -16,7 +16,8 @@ namespace blogik.Models
             {
                 items = new Collection<RPostModelItem>();
                 DB.Open();
-                using (var query = new SqlCommand(String.Format("SELECT TOP(3) name,date,url FROM post ORDER by date DESC")))
+                using (var query = new SqlCommand(String.Format(@"SELECT TOP(3) name,date,url 
+                                                        FROM post ORDER by date DESC")))
                 {
                     query.Connection = DB;
                     using (var reader = query.ExecuteReader())

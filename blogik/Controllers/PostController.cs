@@ -10,9 +10,9 @@ namespace blogik.Controllers
     public class PostController : Controller
     {
 
-        public ActionResult Index()
+        public ActionResult Index(int id=1)
         {
-            var model = new AllPostModel();
+            var model = new AllPostModel(id);
             return View(model);
         }
 
@@ -25,12 +25,20 @@ namespace blogik.Controllers
             {
                 var model = new PostModel(id);
                 return View(model);
-            }
-            //var model = new PostModel();
-            //return View();
-            
+            }        
         }
 
+        [HttpPost]
+        public ActionResult Search()
+        {
+            string s_zapros = Request.Form["search"];
+            //string s_zapros = Request.QueryString["search"];
+            var model = new AllPostModel(s_zapros);
+            return View(model);
+        }
+
+        
+       
 
         //public ActionResult Post()
         //{

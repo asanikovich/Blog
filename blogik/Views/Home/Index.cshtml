@@ -7,7 +7,7 @@
 
     <article class="cf">
         <div class="entry-title">
-            <div class="post-heading">@Model.name ++++ @ViewBag.idpost</div>
+            <div class="post-heading">@Model.name</div>
             <div class="meta">@Model.date.ToString("f")</div>
         </div>
         <div class="block-divider"></div>
@@ -19,7 +19,7 @@
     <div class="block-divider"></div>
 
     <div id="comments-wrap">
-        <h4 class="heading">2 комментария</h4>
+        <h4 class="heading">@Model.num_comm комментарий(я,ев)</h4>
 
         <ul class="commentlist">
 
@@ -56,6 +56,7 @@
             <p class="form-submit">
                 <input name="submit" type="submit" id="submit" value="Отправить">
                 <input type="hidden" name="comment_post_ID" value="@Model.id_post" id="comment_post_ID">
+                <input type="hidden" name="url_now" value="@Model.url_now" id="url_now">
             </p>
 
         </form>

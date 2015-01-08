@@ -36,6 +36,7 @@ namespace blogik.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult AddPost(string name, string post, string url)
         {
             var model = new AddPost(name, post, url);

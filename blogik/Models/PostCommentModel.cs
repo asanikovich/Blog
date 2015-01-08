@@ -7,11 +7,11 @@ namespace blogik.Models
 {
     public class PostCommentModel
     {
-        public PostCommentModel()
+        public PostCommentModel(string u, string t, DateTime d)
         {
-            username = "admin";
-            text = "1232132132111111ds";
-            date = DateTime.Now;
+            username = u;
+            text = t;
+            date = d;
         }
 
         public string username { get; set; }

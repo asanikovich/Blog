@@ -16,10 +16,9 @@ namespace blogik.Models
             {
                 items = new Collection<RCommModelItem>();
                 DB.Open();
-                using (var query = new SqlCommand(String.Format("SELECT TOP(3) username, C.date, comm, url "+
-                                                                    "FROM comment C "+
-                                                                    "JOIN post P ON P.id_post=C.id_post "+
-                                                                    "ORDER by C.date DESC" )))
+                using (var query = new SqlCommand(String.Format(@"SELECT TOP(3) username, C.date, comm, url 
+                                                FROM comment C JOIN post P ON P.id_post=C.id_post
+                                                ORDER by C.date DESC" )))
                 {
                     query.Connection = DB;
                     using (var reader = query.ExecuteReader())
@@ -31,10 +30,7 @@ namespace blogik.Models
                     }
                 }
             }
-            //items = new Collection<RCommModelItem>();
-            //items.Add(new RCommModelItem());
-            //items.Add(new RCommModelItem());
-            //items.Add(new RCommModelItem());
+
         }
 
         public ICollection<RCommModelItem> items { get; set; }

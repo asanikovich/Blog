@@ -20,17 +20,30 @@ namespace blogik
             );
 
             routes.MapRoute(
+                name: "PostPage",
+                url: "Post/Page/{id}",
+                defaults: new { controller = "Post", action = "Index", id = UrlParameter.Optional }
+                , constraints: new { id = @"^[\d]+$" }
+            );
+
+            routes.MapRoute(
                 name: "Post",
                 url: "Post/{id}",
                 defaults: new { controller = "Post", action = "NPost", id = UrlParameter.Optional }
-                , constraints: new { id = @"^[a-zA-z\d\-]+$" }
+                , constraints: new { id = @"^[a-zA-Z\d\-]+$" }
             );
 
             routes.MapRoute(
                 name: "Tags",
                 url: "Tags/{id}",
                 defaults: new { controller = "Tags", action = "NTags", id = UrlParameter.Optional }
-                , constraints: new { id = @"^[a-zA-z\d\-]+$" }
+                , constraints: new { id = @"^[a-zA-Z\d\-]+$" }
+            );
+
+            routes.MapRoute(
+                name: "Search",
+                url: "Search",
+                defaults: new { controller = "Post", action = "Search"}
             );
 
             routes.MapRoute(

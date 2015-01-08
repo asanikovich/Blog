@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Поиск";
+}
+@model blogik.Models.AllPostModel
+<div class="one-third-col one-third-col-my">
+    <div class="my-posts-last">Результаты поиска «@Model.search_t»</div>
+    <div class="block-divider my-block"></div>
+
+    <ul class="recent-posts">
+        @foreach (var item in Model.items)
+        {
+            <li>
+                <a href="@Url.RouteUrl("Post", new { Controller = "Post", action = "NPost", id = @item.url })" class="title">
+                    @item.name
+                </a>
+                <span class="date">@item.date.ToString("f")</span>
+            </li>
+        }
+    </ul>
+
+</div>

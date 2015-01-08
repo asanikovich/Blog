@@ -11,7 +11,8 @@
             <div class="post cf">
                 <div class="post-head">
                     <a href="@Url.RouteUrl("Post", new { Controller = "Post", action = "NPost", id = @item.url } )">@item.text</a>
-                    <span class="meta"><a href="@Url.RouteUrl("Post", new { Controller = "Post", action = "NPost", id = @item.url } )">@item.username - @item.date.ToString("g")</a></span> @*TODO add #div-comment-1*@
+                    <span class="meta">
+                    <a href="@Url.RouteUrl("Post", new { Controller = "Post", action = "NPost", id = @item.url } )">@item.username - @item.date.ToString("g")</a></span> @*TODO add #div-comment-1*@
                 </div>
             </div>
         }

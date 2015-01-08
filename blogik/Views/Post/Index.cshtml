@@ -20,10 +20,22 @@
     </ul>
 
     <ul class="pager cf">
-        <li class="paged">Страница 1 из 4</li>
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
+        <li class="paged">Страница @Model.cur_page из @Model.num_pages</li>
+        @for (int i = 1; i <= @Model.num_pages; i++)
+        {
+            if (i == @Model.cur_page)
+            {
+            <li class="active">
+                <a href="@Url.RouteUrl("PostPage", new { Controller = "Post", action = "Index", id = @i })">@i</a>
+            </li>
+            }
+            else
+            {
+            <li>
+                <a href="@Url.RouteUrl("PostPage", new { Controller = "Post", action = "Index", id = @i })">@i</a>
+            </li>
+            }
+        }
     </ul>
+
 </div>
