@@ -11,17 +11,37 @@ namespace blogik.Models
     {
         public AddPost(string name, string text, string url)
         {
+            int k = 0;
             using (var DB = new SqlConnection(ConfigurationManager.ConnectionStrings["mssql"].ConnectionString))
             {
-                using (var query = new SqlCommand(String.Format(@"INSERT INTO post (name, text, url) values
-                                (@name, @text, @url)")))
+                DB.Open();
+                using (var query = new SqlCommand(String.Format(@"SELECT name FROM post WHERE url = @url")))
                 {
-                    query.Parameters.Add(new SqlParameter("name", name));
-                    query.Parameters.Add(new SqlParameter("text", text));
-                    query.Parameters.Add(new SqlParameter("url", url));
                     query.Connection = DB;
-                    DB.Open();
-                    query.ExecuteNonQuery();
+                    query.Parameters.Add(new SqlParameter("url", url));
+                    using (var reader = query.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            k = 1;
+                        }
+                    }
+                }
+            }
+
+            if (k == 0) { 
+                using (var DB = new SqlConnection(ConfigurationManager.ConnectionStrings["mssql"].ConnectionString))
+                {
+                    using (var query = new SqlCommand(String.Format(@"INSERT INTO post (name, text, url) values
+                                    (@name, @text, @url)")))
+                    {
+                        query.Parameters.Add(new SqlParameter("name", name));
+                        query.Parameters.Add(new SqlParameter("text", text));
+                        query.Parameters.Add(new SqlParameter("url", url));
+                        query.Connection = DB;
+                        DB.Open();
+                        query.ExecuteNonQuery();
+                    }
                 }
             }
         }

@@ -1,11 +1,11 @@
 ﻿@{
     ViewBag.Title = "Изменение записи";
-    ViewBag.PostName = "запись";
 }
+@model blogik.Models.AEditModel
 <div id="posts-list" class="cf single-post add-class">
 
     <div id="respond">
-        <div class="my-posts-last">Именить @ViewBag.PostName</div>
+        <div class="my-posts-last">Именить @Model.</div>
         <div class="block-divider"></div>
 
         <form action="single.html" method="post" id="commentform">

@@ -47,6 +47,27 @@ namespace blogik
             );
 
             routes.MapRoute(
+                name: "AEditPost",
+                url: "Edit/{id}",
+                defaults: new { controller = "Admin", action = "Edit", id = UrlParameter.Optional }
+                , constraints: new { id = @"^[\d]+$" }
+            );
+
+            routes.MapRoute(
+                name: "ADeletePost",
+                url: "DelPost/{id}",
+                defaults: new { controller = "Admin", action = "DelPost", id = UrlParameter.Optional }
+                , constraints: new { id = @"^[\d]+$" }
+            );
+
+            routes.MapRoute(
+                name: "ADeleteComm",
+                url: "DelComm/{id}",
+                defaults: new { controller = "Admin", action = "DelComm", id = UrlParameter.Optional }
+                , constraints: new { id = @"^[\d]+$" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

@@ -7,6 +7,14 @@
     <div class="block-divider my-block"></div>
 
     <ul class="recent-posts">
+        @if(Model.cur_page==0) {
+            <li>
+                <a href="@Url.Action("Index", "Home")" class="title">
+                    К сожалению, по вашему запросу ничего не найдено!
+                </a>
+            </li>
+        }
+
         @foreach (var item in Model.items)
         {
             <li>

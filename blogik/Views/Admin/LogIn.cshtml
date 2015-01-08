@@ -7,7 +7,7 @@
         <div class="my-posts-last">Войдите для доступа к админке</div>
         <div class="block-divider"></div>
 
-        <form action="single.html" method="post" id="commentform">
+        <form action="@Url.Action("LogIn", "Admin")" method="post" id="commentform">
 
             <p class="comment-form-author">
                 <label for="author">Логин</label>
@@ -19,8 +19,14 @@
                 <input id="pass" name="pass" type="password" value="" size="30" required aria-required="true">
             </p>
 
+            <p class="comment-form-author">
+                <label for="author">Запомнить</label>
+                <input id="zap" name="zap" type="checkbox" value="1">
+            </p>
+
             <p class="form-submit">
                 <input name="submit" type="submit" id="submit" value="Войти">
+                <input name="url" type="hidden" value="@ViewBag.url">
             </p>
 
         </form>

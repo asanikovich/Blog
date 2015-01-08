@@ -18,6 +18,9 @@
 
     <div class="block-divider"></div>
 
+    <a href="@Url.RouteUrl("AEditPost", new { Controller = "Admin", action = "Edit", id = @Model.id_post })" class="link-button green my-edit-but">Изменить</a>
+    <a href="@Url.RouteUrl("ADeletePost", new { Controller = "Admin", action = "DelPost", id = @Model.id_post })" class="link-button red my-edit-but">Удалить</a>
+
     <div id="comments-wrap">
         <h4 class="heading">@Model.num_comm комментарий(я,ев)</h4>
 
@@ -31,6 +34,8 @@
                     <div class="comment-meta commentmetadata">@item.date.ToString("f")</div>
                     <p>@item.text</p>
                 </div>
+                @*@FormsAuthentication.Forms*@
+                <a href="@Url.RouteUrl("ADeleteComm", new { Controller = "Admin", action = "DelComm", id = @Model.id_post })" class="link-button red my-edit-but">Удалить</a>
             </li>
             }
 

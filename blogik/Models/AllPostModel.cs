@@ -63,11 +63,12 @@ namespace blogik.Models
         {
             search_t = search.Trim();
             items = new Collection<RPostModelItem>();
+            cur_page = 0;
             using (var DB = new SqlConnection(ConfigurationManager.ConnectionStrings["mssql"].ConnectionString))
             {
                 DB.Open();
                 using (var query = new SqlCommand(String.Format(@"SELECT TOP(50) name,date,url
-                                                FROM post WHERE text LIKE @search ORDER BY date DESC")))
+                                                FROM post WHERE name LIKE @search ORDER BY date DESC")))
                 {
                     query.Connection = DB;
                     query.Parameters.Add(new SqlParameter("search", "%" + search_t + "%"));
@@ -75,6 +76,7 @@ namespace blogik.Models
                     {
                         while (reader.Read())
                         {
+                            cur_page++;
                             items.Add(new RPostModelItem(reader["name"].ToString(), reader["url"].ToString(), DateTime.Parse(reader["date"].ToString())));
                         }
                     }
