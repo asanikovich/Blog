@@ -69,7 +69,7 @@ namespace blogik.Models
                 comments = new Collection<PostCommentModel>();
                 num_comm = 0;
                 DB.Open();
-                using (var query = new SqlCommand(String.Format(@"SELECT date, username, comm 
+                using (var query = new SqlCommand(String.Format(@"SELECT id_comm, date, username, comm 
                     FROM comment WHERE id_post = @id")))
                 {
                     query.Connection = DB;
@@ -79,7 +79,7 @@ namespace blogik.Models
                         while (reader.Read())
                         {
                             num_comm++;
-                            comments.Add(new PostCommentModel(reader["username"].ToString(), reader["comm"].ToString(), DateTime.Parse(reader["date"].ToString()) ));
+                            comments.Add(new PostCommentModel(Convert.ToInt32(reader["id_comm"].ToString()), reader["username"].ToString(), reader["comm"].ToString(), DateTime.Parse(reader["date"].ToString())));
                         }
                     }
                 }

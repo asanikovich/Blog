@@ -29,13 +29,13 @@
             @foreach (var item in Model.comments)
             {
             <li class="comment">
-                <div id="div-comment-1" class="comment-body">
+                <div id="div-comment-@item.id_comm" class="comment-body">
                     <div class="comment-author vcard"><cite class="fn">@item.username</cite></div>
                     <div class="comment-meta commentmetadata">@item.date.ToString("f")</div>
                     <p>@item.text</p>
                 </div>
                 @*@FormsAuthentication.Forms*@
-                <a href="@Url.RouteUrl("ADeleteComm", new { Controller = "Admin", action = "DelComm", id = @Model.id_post })" class="link-button red my-edit-but">Удалить</a>
+                <a href="@Url.RouteUrl("ADeleteComm", new { Controller = "Admin", action = "DelComm", id = @item.id_comm })" class="link-button red my-edit-but">Удалить</a>
             </li>
             }
 

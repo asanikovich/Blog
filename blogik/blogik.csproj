@@ -138,8 +138,9 @@
     <Compile Include="Models\AddPost.cs" />
     <Compile Include="Models\AEditModel.cs" />
     <Compile Include="Models\AllPostModel.cs" />
+    <Compile Include="Models\DeleteModels.cs" />
     <Compile Include="Models\PostCommentModel.cs" />
-    <Compile Include="Models\PostDataModel.cs" />
+    <Compile Include="Models\del_PostDataModel.cs" />
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Models\RCommModel.cs" />
     <Compile Include="Models\RCommModelItem.cs" />

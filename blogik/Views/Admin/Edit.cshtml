@@ -5,33 +5,34 @@
 <div id="posts-list" class="cf single-post add-class">
 
     <div id="respond">
-        <div class="my-posts-last">Именить @Model.</div>
+        <div class="my-posts-last">Именить @Model.name</div>
         <div class="block-divider"></div>
 
-        <form action="single.html" method="post" id="commentform">
+        <form action="@Url.Action("Update", "Admin")" method="post" id="commentform">
 
             <p class="comment-form-author">
                 <label for="author">Название</label>
-                <input id="name" name="name" type="text" value="" size="30" required aria-required="true">
+                <input id="name" name="name" type="text" value="@Model.name" size="30" required aria-required="true">
             </p>
 
             <p class="comment-form-author">
                 <label for="author">Дата</label>
-                <input id="date" name="date" type="text" value="" size="30" placeholder="Оставьте пустым для сегодняшней даты" required aria-required="true">
+                <input id="date" name="date" type="text" value="@Model.date" size="30" placeholder="Оставьте пустым для сегодняшней даты" required aria-required="true">
             </p>
 
             <p class="comment-form-author">
                 <label for="author">URL</label>
-                <input id="url" name="url" type="text" value="" size="30" required aria-required="true">
+                <input id="url" name="url" type="text" value="@Model.url" size="30" required aria-required="true">
             </p>
 
             <p class="comment-form-comment">
                 <label for="comment">Содержание записи</label>
-                <textarea id="post" name="post" cols="25" rows="8" required aria-required="true"></textarea>
+                <textarea id="post" name="post" cols="25" rows="8" required aria-required="true">@Model.text</textarea>
             </p>
 
             <p class="form-submit">
-                <input name="submit" type="submit" id="submit" value="Добавить">
+                <input name="submit" type="submit" id="submit" value="Сохранить">
+                <input name="id_post" type="hidden" id="id_post" value="@Model.id_post">
             </p>
 
         </form>

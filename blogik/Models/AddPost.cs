@@ -41,9 +41,16 @@ namespace blogik.Models
                         query.Connection = DB;
                         DB.Open();
                         query.ExecuteNonQuery();
+                        urlnew = url;
                     }
                 }
             }
         }
+
+        public string retNewUrl()
+        {
+            return urlnew;
+        }
+        private string urlnew { get; set; }
     }
 }

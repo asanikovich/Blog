@@ -66,8 +66,8 @@ namespace blogik.Controllers
 
         public ActionResult LogOut()
         {
-            Response.Cookies.Clear();
-            return View();
+            FormsAuthentication.SignOut();            //Response.Cookies.Clear();
+            return RedirectToAction("Index", "Home");
         }
 
         //[HttpGet] TODO
@@ -81,10 +81,19 @@ namespace blogik.Controllers
         [Authorize(Users = "AlSan")]
         [HttpPost]
         [ValidateInput(false)]
+        public ActionResult Update(int id_post, string name, string post, string url, DateTime date)
+        {
+            var model = new AUpdateModel(id_post, name, post, url, date);
+            return RedirectPermanent("/Post/" + model.retNewUrl() );
+        }
+
+        [Authorize(Users = "AlSan")]
+        [HttpPost]
+        [ValidateInput(false)]
         public ActionResult AddPost(string name, string post, string url)
         {
             var model = new AddPost(name, post, url);
-            return RedirectToAction("Index","Home");
+            return RedirectPermanent("/Post/" + model.retNewUrl());
         }
 
         [Authorize(Users = "AlSan")]
@@ -94,15 +103,17 @@ namespace blogik.Controllers
         }
 
         [Authorize(Users = "AlSan")]
-        public ActionResult DelComm()
+        public ActionResult DelComm(int id)
         {
-            return View();
+            var model = new DelComm(id);
+            return RedirectToAction("Index", "Home");
         }
 
         [Authorize(Users = "AlSan")]
-        public ActionResult DelPost()
+        public ActionResult DelPost(int id)
         {
-            return View();
+            var model = new DelPost(id);
+            return RedirectToAction("Index", "Home");
         }
     }
 }

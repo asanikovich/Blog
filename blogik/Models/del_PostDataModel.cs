@@ -5,9 +5,9 @@ using System.Web;
 
 namespace blogik.Models
 {
-    public class PostDataModel
+    public class del_PostDataModel
     {
-        public PostDataModel(int id, string n, string t, DateTime d, string u)
+        public del_PostDataModel(int id, string n, string t, DateTime d, string u)
         {
             id_post = id;
             name = n;

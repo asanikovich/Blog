@@ -16,7 +16,7 @@ namespace blogik.Models
             {
                 items = new Collection<RCommModelItem>();
                 DB.Open();
-                using (var query = new SqlCommand(String.Format(@"SELECT TOP(3) username, C.date, comm, url 
+                using (var query = new SqlCommand(String.Format(@"SELECT TOP(3) id_comm, username, C.date, comm, url 
                                                 FROM comment C JOIN post P ON P.id_post=C.id_post
                                                 ORDER by C.date DESC" )))
                 {
@@ -25,7 +25,7 @@ namespace blogik.Models
                     {
                         while (reader.Read())
                         {
-                            items.Add(new RCommModelItem(reader["username"].ToString(), reader["comm"].ToString(), reader["url"].ToString(), DateTime.Parse(reader["date"].ToString())));
+                            items.Add(new RCommModelItem(Convert.ToInt32(reader["id_comm"].ToString()), reader["username"].ToString(), reader["comm"].ToString(), reader["url"].ToString(), DateTime.Parse(reader["date"].ToString())));
                         }
                     }
                 }

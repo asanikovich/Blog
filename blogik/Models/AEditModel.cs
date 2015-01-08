@@ -23,8 +23,12 @@ namespace blogik.Models
                     {
                         if (reader.Read())
                         {
-                            item = new PostDataModel(id, reader["name"].ToString(), reader["text"].ToString(), DateTime.Parse(reader["date"].ToString()), reader["url"].ToString());
-                            UpdateData(item);
+                            id_post = id;
+                            name = reader["name"].ToString();
+                            text = reader["text"].ToString();
+                            date = DateTime.Parse(reader["date"].ToString());
+                            url = reader["url"].ToString();
+                            //UpdateData(item);
                         }
                     }
                 }
@@ -32,27 +36,41 @@ namespace blogik.Models
 
         }
 
-        private void UpdateData(PostDataModel item)
-                {
-                    using (var DB = new SqlConnection(ConfigurationManager.ConnectionStrings["mssql"].ConnectionString))
-                    {
-                        using (var query = new SqlCommand(String.Format(@"UPDATE post
-                                                SET name=@name,text=@text,date=@date,url=@url 
-                                                WHERE id_post = @id")))
-                        {
-                            query.Parameters.Add(new SqlParameter("id", item.id_post));
-                            query.Parameters.Add(new SqlParameter("name", item.name));
-                            query.Parameters.Add(new SqlParameter("text", item.text));
-                            query.Parameters.Add(new SqlParameter("date", item.date));
-                            query.Parameters.Add(new SqlParameter("url", item.url));
-
-                            query.Connection = DB;
-                            DB.Open();
-                            query.ExecuteNonQuery();
-                        }
-                    }  
-                }
-
-        private PostDataModel item;
+        public int id_post { get; set; }
+        public string name { get; set; }
+        public string text { get; set; }
+        public DateTime date { get; set; }
+        public string url { get; set; }
     }
+
+    public class AUpdateModel
+    {
+        public AUpdateModel(int id_post, string name, string text, string url, DateTime date)
+        {
+            using (var DB = new SqlConnection(ConfigurationManager.ConnectionStrings["mssql"].ConnectionString))
+            {
+                using (var query = new SqlCommand(String.Format(@"UPDATE post
+                                        SET name=@name,text=@text,date=@date,url=@url 
+                                        WHERE id_post = @id")))
+                {
+                    query.Parameters.Add(new SqlParameter("id", id_post));
+                    query.Parameters.Add(new SqlParameter("name", name));
+                    query.Parameters.Add(new SqlParameter("text", text));
+                    query.Parameters.Add(new SqlParameter("date", date));
+                    query.Parameters.Add(new SqlParameter("url", url));
+
+                    query.Connection = DB;
+                    DB.Open();
+                    query.ExecuteNonQuery();
+                    urlnew = url;
+                }
+            }  
+        }
+
+        public string retNewUrl(){
+            return urlnew;
+        }
+        private string urlnew { get; set; }
+    }
+
 }
