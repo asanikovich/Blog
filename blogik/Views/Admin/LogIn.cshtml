@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "Авторизация";
+    ViewBag.idpage = 0;
 }
 <div id="posts-list" class="cf single-post add-class">
 
@@ -19,10 +20,10 @@
                 <input id="pass" name="pass" type="password" value="" size="30" required aria-required="true">
             </p>
 
-            <p class="comment-form-author">
+            @*<p class="comment-form-author">
                 <label for="author">Запомнить</label>
                 <input id="zap" name="zap" type="checkbox" value="1">
-            </p>
+            </p>*@
 
             <p class="form-submit">
                 <input name="submit" type="submit" id="submit" value="Войти">

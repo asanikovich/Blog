@@ -42,6 +42,7 @@ namespace blogik.Controllers
         {
             using (var DB = new SqlConnection(ConfigurationManager.ConnectionStrings["mssql"].ConnectionString))
             {
+                url = null;
                 var provider = new SHA1CryptoServiceProvider();
                 byte[] bytes = Encoding.UTF8.GetBytes(pass);
                 string result = Convert.ToBase64String(provider.ComputeHash(bytes));
@@ -61,7 +62,8 @@ namespace blogik.Controllers
                     }
                 }
             }
-            return RedirectPermanent(url);
+            if (url != null) return RedirectPermanent(url);
+            else return RedirectToAction("Index", "Home");
         }
 
         public ActionResult LogOut()

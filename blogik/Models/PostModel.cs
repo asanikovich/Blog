@@ -70,7 +70,7 @@ namespace blogik.Models
                 num_comm = 0;
                 DB.Open();
                 using (var query = new SqlCommand(String.Format(@"SELECT id_comm, date, username, comm 
-                    FROM comment WHERE id_post = @id")))
+                    FROM comment WHERE id_post = @id ORDER by date DESC")))
                 {
                     query.Connection = DB;
                     query.Parameters.Add(new SqlParameter("id", id_post));

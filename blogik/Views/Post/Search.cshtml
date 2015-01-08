@@ -1,5 +1,8 @@
 ﻿@{
     ViewBag.Title = "Поиск";
+    ViewBag.idpage = 0;
+    ViewBag.Admin = false;
+    if (HttpContext.Current.User.Identity.Name == "AlSan") { ViewBag.Admin = true; }
 }
 @model blogik.Models.AllPostModel
 <div class="one-third-col one-third-col-my">

@@ -1,6 +1,8 @@
 ﻿@{
     ViewBag.Title = @Model.name;
-    
+    ViewBag.Admin = false;
+    if (HttpContext.Current.User.Identity.Name == "AlSan") @ViewBag.Admin = true;
+    ViewBag.idpage = 0;
 }
 @model blogik.Models.PostModel
 <div id="posts-list" class="cf single-post">
@@ -17,10 +19,12 @@
     </article>
 
     <div class="block-divider"></div>
-
+    @if (ViewBag.Admin)
+    { 
     <a href="@Url.RouteUrl("AEditPost", new { Controller = "Admin", action = "Edit", id = @Model.id_post })" class="link-button green my-edit-but">Изменить</a>
     <a href="@Url.RouteUrl("ADeletePost", new { Controller = "Admin", action = "DelPost", id = @Model.id_post })" class="link-button red my-edit-but">Удалить</a>
-
+    }
+    
     <div id="comments-wrap">
         <h4 class="heading">@Model.num_comm комментарий(я,ев)</h4>
 
@@ -34,8 +38,9 @@
                     <div class="comment-meta commentmetadata">@item.date.ToString("f")</div>
                     <p>@item.text</p>
                 </div>
-                @*@FormsAuthentication.Forms*@
+                @if (ViewBag.Admin) { 
                 <a href="@Url.RouteUrl("ADeleteComm", new { Controller = "Admin", action = "DelComm", id = @item.id_comm })" class="link-button red my-edit-but">Удалить</a>
+                }
             </li>
             }
 

@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewBag.Admin = false;
+    if (HttpContext.Current.User.Identity.Name == "AlSan") {ViewBag.Admin = true;}   
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -29,8 +33,15 @@
                     else {<li><a href="@Url.Action("Index","Home")">Главная</a></li>}
                 @if (ViewBag.idpage == 2) {<li class="current-menu-item"><a href="@Url.Action("Index","Post")">Записи</a></li>}
                     else {<li><a href="@Url.Action("Index","Post")">Записи</a></li>}
-                @if (ViewBag.idpage == 3) {<li class="important current-menu-item"><a href="@Url.Action("Add", "Admin")">Добавить</a></li>}
-                    else {<li class="important"><a href="@Url.Action("Add", "Admin")">Добавить</a></li>}
+
+                @if (@ViewBag.Admin && @ViewBag.idpage == 3)
+                {
+                    <li class="important current-menu-item"><a href="@Url.Action("Add", "Admin")">Добавить</a></li>
+                }
+                @if (@ViewBag.Admin && @ViewBag.idpage !=3)
+                {
+                    <li class="important"><a href="@Url.Action("Add", "Admin")">Добавить</a></li>
+                }
             </ul>
         </nav>
 

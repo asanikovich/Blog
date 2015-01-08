@@ -230,7 +230,7 @@
     <Content Include="Views\Admin\LogIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Home\del_Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Post\Search.cshtml" />

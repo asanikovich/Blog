@@ -29,7 +29,6 @@ namespace blogik.Controllers
             var model = new TagModel();
             return View(model);
         }
-
-
+        
     }
 }
